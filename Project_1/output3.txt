@@ -1,0 +1,2 @@
+3
+Less than 100 nanoseconds
