@@ -2,7 +2,7 @@ README for Program 2
 
 Compiling and Running the Code:
 
-1) A makefile has been included. Using "make2" will compile only program 2, while "make" will compile all three programs.
+1) A makefile has been included. Using "make 2" will compile only program 2, while "make" will compile all three programs.
 2) The program is run as follows:
 ./program2 <filex.txt> <filey.txt> <output2.txt>
 

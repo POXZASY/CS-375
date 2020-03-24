@@ -2,7 +2,7 @@ README for Program 3
 
 Compiling and Running the Code:
 
-1) A makefile has been included. Using "make3" will compile only program 3, while "make" will compile all three programs.
+1) A makefile has been included. Using "make 3" will compile only program 3, while "make" will compile all three programs.
 2) The program is run as follows:
 ./program3 <filex.txt> <filey.txt> <output3.txt>
 
