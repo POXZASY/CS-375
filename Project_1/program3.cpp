@@ -72,6 +72,15 @@ int main(int argc, char **argv){
   string strx = getString(filex); //first string
   string stry = getString(filey); //second string
 
+  //initialize LCSvals
+  for(unsigned int i = 0; i <= strx.length(); i++){
+    vector<int> temp; //temporary 1D vector to be added as an element of the 2D vector LCSvals
+    for(unsigned int j = 0; j <= stry.length(); j++){
+      temp.push_back(-1);
+    }
+    LCSvals.push_back(temp);
+  }
+
   //run the algorithm, and compute the time taken
   chrono::high_resolution_clock::time_point start = chrono::high_resolution_clock::now(); //clock object from chrono library, time lenLCS starts
   int substrlen = lenLCS(strx, stry);
