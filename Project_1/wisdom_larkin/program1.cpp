@@ -4,6 +4,7 @@
 #include <chrono> //time
 #include <vector>
 #include <thread>
+#include <string>
 
 using namespace std;
 
@@ -42,6 +43,31 @@ int lenLCS(string strx, string stry){
   return LCSvals[lenx][leny];
 }
 
+//Produces the lcs of the two strings
+//Must first have filled LCSvals
+//takes in the two strings
+string lcs(string strx, string stry){
+  string retval = "";
+  int len1 = strx.length(); //length of the first string
+  int len2 = stry.length(); //length of the second string
+  while(len1>0 && len2>0){
+    string charx = string(1, strx.at(len1-1)); //last character of first string
+    string chary = string(1, stry.at(len2-1)); //last character of second string
+    if(charx==chary){
+      retval.insert(0, charx);
+      len1--;
+      len2--;
+    }
+    else if(LCSvals[len1-1][len2] > LCSvals[len1][len2-1]){
+      len1--;
+    }
+    else{
+      len2--;
+    }
+  }
+  return retval;
+}
+
 int main(int argc, char **argv){
   string filex = argv[1]; //filename for first string
   string filey = argv[2]; //filename for second string
@@ -77,9 +103,10 @@ int main(int argc, char **argv){
       }
       file << s << endl;
     }
+    file << lcs(strx, stry) << endl;
   }
   //LCS length
-  file << substrlen << endl;
+  else file << substrlen << endl;
   //Running time
   if(time_taken.count()==0) file << "Less than 100 nanoseconds" << endl;
   else file << time_taken.count() << " nanoseconds"<< endl;

@@ -45,13 +45,14 @@ int lenLCS(string strx, string stry){
 
 //Produces the lcs of the two strings
 //Must first have filled LCSvals
+//takes in the two strings
 string lcs(string strx, string stry){
-  string retval;
+  string retval = "";
   int len1 = strx.length(); //length of the first string
   int len2 = stry.length(); //length of the second string
   while(len1>0 && len2>0){
-    string charx = string(1, strx.at(len1-1));
-    string chary = string(1, stry.at(len2-1));
+    string charx = string(1, strx.at(len1-1)); //last character of first string
+    string chary = string(1, stry.at(len2-1)); //last character of second string
     if(charx==chary){
       retval.insert(0, charx);
       len1--;
